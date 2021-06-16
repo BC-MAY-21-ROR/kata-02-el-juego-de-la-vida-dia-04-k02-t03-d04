@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Create class cell in wich the conditions are defined
 class Cell
-  attr_accessor :position, :neighbours, :state
+  attr_reader :position, :neighbours, :state
 
   def initialize(state, position, neighbours: [])
     @state = state
@@ -7,11 +10,11 @@ class Cell
     @neighbours = neighbours
   end
 
-  def live!
+  def alive
     @state = :alive
   end
 
-  def die!
+  def dead
     @state = :dead
   end
 

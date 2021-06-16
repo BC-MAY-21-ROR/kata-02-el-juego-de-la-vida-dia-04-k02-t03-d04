@@ -3,6 +3,8 @@
 require_relative './reader'
 require_relative './cell'
 
+# Create to draw the cells's board
+
 class Grid
   def draw
     rows = Reader.new.read_file
@@ -38,7 +40,10 @@ class Grid
     cells = draw_board
     cells.each_with_index do |rows, index|
       rows.each do |_cell, column_index|
-        surrounding_locations = neighbour_offset.map { |e| { x: e[1] + cells[index, column_index].position[:x], y: e[0] + cells[index, column_index].position[:y] } }
+        surrounding_locations = neighbour_offset.map do |e|
+          { x: e[1] + cells[index, column_index].position[:x],
+            y: e[0] + cells[index, column_index].position[:y] }
+        end
         puts cells[index, column_index].position[:x]
         cells[index, column_index].neighbours = surrounding_locations.select do |ref|
           ref[:x] >= 0 && ref[:y] >= 0 && ref[:x] < @rows && ref[:y] < @columns
