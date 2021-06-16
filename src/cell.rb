@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+ 
 # Create class cell in wich the conditions are defined
 class Cell
   attr_reader :position, :neighbours, :state
